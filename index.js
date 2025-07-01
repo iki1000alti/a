@@ -3,12 +3,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
-<<<<<<< HEAD
-=======
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
->>>>>>> bd2e1776808be85d7b40f9420646f5d351dacf00
 
 app.use(express.json());
 
@@ -34,8 +31,6 @@ app.get('/', (req, res) => {
   res.send('Backend API Güncellendi!');
 });
 
-<<<<<<< HEAD
-=======
 // Kullanıcı modeli
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
@@ -158,7 +153,6 @@ app.post('/api/users/approve/:id', superAdminAuth, async (req, res) => {
   }
 });
 
->>>>>>> bd2e1776808be85d7b40f9420646f5d351dacf00
 app.listen(PORT, () => {
   console.log(`Backend sunucu ${PORT} portunda çalışıyor.`);
-}); 
+});
