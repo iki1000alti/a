@@ -15,6 +15,19 @@ const allowedOrigins = [
   'https://www.aksumetal.com'
 ];
 
+const server = app.listen(PORT, () => {
+  console.log(`Backend sunucu ${PORT} portunda çalışıyor.`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} zaten kullanımda!`);
+    process.exit(1);
+  } else {
+    console.error('Sunucu hatası:', err);
+  }
+});
+
 app.use(cors({
   origin: function(origin, callback) {
     if (!origin) return callback(null, true);
